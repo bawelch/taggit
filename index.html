@@ -1,71 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TagLink</title>
-  <link rel="stylesheet" href="src/styles.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TagLink</title>
+    <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="app-shell">
-    <header class="topbar">
-      <div>
-        <h1>TagLink</h1>
-        <p class="subtitle">Select 3 or more items that share a hidden tag. Partial groups are valid. Items can be reused up to their limit.</p>
-      </div>
-      <div class="stats">
-        <div class="stat-card">
-          <span class="stat-label">Score</span>
-          <span class="stat-value" id="scoreValue">0.0</span>
-        </div>
-        <div class="stat-card">
-          <span class="stat-label">Guesses</span>
-          <span class="stat-value"><span id="guessesUsed">0</span>/<span id="maxGuesses">0</span></span>
-        </div>
-        <div class="stat-card">
-          <span class="stat-label">Available moves</span>
-          <span class="stat-value" id="moveState">—</span>
-        </div>
-      </div>
-    </header>
+    <div class="app-shell">
+        <header class="topbar">
+            <div>
+                <h1>TagLink</h1>
+                <p class="subtitle">Select 3 or more items that share a hidden tag. Partial groups are valid. Items can be reused up to their limit.</p>
+            </div>
+            <div class="stats">
+                <div class="stat-card">
+                    <span class="stat-label">Score</span>
+                    <span class="stat-value" id="scoreValue">0.0</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Guesses</span>
+                    <span class="stat-value"><span id="guessesUsed">0</span>/<span id="maxGuesses">0</span></span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Available moves</span>
+                    <span class="stat-value" id="moveState">—</span>
+                </div>
+            </div>
+        </header>
 
-    <main class="main-layout">
-      <section class="board-panel panel">
-        <div class="board-actions">
-          <button id="submitBtn" class="primary">Submit guess</button>
-          <button id="clearBtn">Clear selection</button>
-          <button id="newGameBtn">New sample board</button>
-        </div>
+        <main class="main-layout">
+            <section class="board-panel panel">
+                <div class="board-actions">
+                    <button id="submitBtn" class="primary">Submit guess</button>
+                    <button id="clearBtn">Clear selection</button>
+                    <button id="newGameBtn">New sample board</button>
+                </div>
 
-        <div id="messageBox" class="message-box">Pick at least 3 items.</div>
-        <div id="board" class="board"></div>
-      </section>
+                <div id="messageBox" class="message-box">Pick at least 3 items.</div>
+                <div id="board" class="board"></div>
+            </section>
 
-      <aside class="side-panel panel">
-        <section>
-          <h2>Selected</h2>
-          <div id="selectedList" class="selected-list empty">No items selected.</div>
-        </section>
+            <aside class="side-panel panel">
+                <section>
+                    <h2>Selected</h2>
+                    <div id="selectedList" class="selected-list empty">No items selected.</div>
+                </section>
 
-        <section>
-          <h2>Rules</h2>
-          <ul class="rules">
-            <li>Any valid guess must contain at least 3 available items.</li>
-            <li>A valid guess shares at least one common tag.</li>
-            <li>Incomplete groups are allowed and score less than full coverage.</li>
-            <li>Each successful use increments that item's usage counter x/n.</li>
-            <li>Exhausted items stay visible but cannot be selected.</li>
-          </ul>
-        </section>
+                <section>
+                    <h2>Rules</h2>
+                    <ul class="rules">
+                        <li>Any valid guess must contain at least 3 available items.</li>
+                        <li>A valid guess shares at least one common tag.</li>
+                        <li>Incomplete groups are allowed and score less than full coverage.</li>
+                        <li>Each successful use increments that item's usage counter x/n.</li>
+                        <li>Exhausted items stay visible but cannot be selected.</li>
+                    </ul>
+                </section>
 
-        <section>
-          <h2>Event log</h2>
-          <div id="log" class="log"></div>
-        </section>
-      </aside>
-    </main>
-  </div>
+                <section>
+                    <h2>Event log</h2>
+                    <div id="log" class="log"></div>
+                </section>
+            </aside>
+        </main>
+    </div>
 
-  <script src="src/app.js"></script>
+    <script src="items.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
