@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weighted Tag Connections</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header class="page-header">
+      <div>
+        <h1>Weighted Tag Connections</h1>
+        <p class="subhead">
+          A procedural deduction game inspired by Connections, but with variable group sizes,
+          variable connection counts, weighted semantic tags, and optional decoys.
+        </p>
+      </div>
+    </header>
+
+    <section class="top">
+      <div class="panel">
+        <h2>Game Setup</h2>
+        <div class="controls">
+          <div class="field">
+            <label for="gridSize">Grid size</label>
+            <select id="gridSize">
+              <option value="12">12</option>
+              <option value="16" selected>16</option>
+              <option value="20">20</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="pickLimit">Pick limit</label>
+            <input id="pickLimit" type="number" min="4" max="30" value="10" />
+          </div>
+
+          <div class="field">
+            <label for="minGroup">Min group size</label>
+            <select id="minGroup">
+              <option value="2">2</option>
+              <option value="3" selected>3</option>
+              <option value="4">4</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="maxGroup">Max group size</label>
+            <select id="maxGroup">
+              <option value="3">3</option>
+              <option value="4" selected>4</option>
+              <option value="5">5</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="button-row">
+          <button id="newGameBtn">New Game</button>
+          <button id="submitBtn">Submit Selection</button>
+          <button id="clearBtn" class="secondary">Clear Selection</button>
+          <button id="hintBtn" class="secondary">Check Remaining Connections</button>
+        </div>
+
+        <p class="small-note">
+          This is a structured MVP using modular files. The generator is constrained rather than
+          fully production-grade.
+        </p>
+      </div>
+
+      <div class="panel">
+        <h2>Run State</h2>
+        <div class="stats">
+          <div class="stat">
+            <div class="stat-key">Score</div>
+            <div class="stat-value" id="score">0</div>
+          </div>
+          <div class="stat">
+            <div class="stat-key">Picks used / limit</div>
+            <div class="stat-value" id="picks">0 / 10</div>
+          </div>
+          <div class="stat">
+            <div class="stat-key">Unused entries</div>
+            <div class="stat-value" id="unused">0</div>
+          </div>
+          <div class="stat">
+            <div class="stat-key">Revealed connections</div>
+            <div class="stat-value" id="found">0</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel board-panel">
+      <div class="selection-info" id="selectionInfo">Select entries and submit.</div>
+      <div class="grid" id="grid"></div>
+    </section>
+
+    <section class="bottom">
+      <div class="panel">
+        <h2>Status</h2>
+        <div class="message" id="message">Game not started.</div>
+      </div>
+
+      <div class="panel">
+        <h2>Revealed connections</h2>
+        <ul id="history" class="history-list"></ul>
+      </div>
+    </section>
+  </div>
+
+  <script type="module" src="src/app.js"></script>
+</body>
+</html>
