@@ -1,42 +1,29 @@
-# Weighted Tag Connections Web App
+# TagLink
+
+Updated vanilla web prototype implementing the revised rules:
+
+- valid guesses are any 3+ available items sharing at least one tag
+- incomplete groups are allowed
+- items have per-item usage limits
+- each tile shows usage as x/n
+- successful guesses increment pick counts
+- exhausted items remain visible but disabled
+- scoring uses coverage discount and repeat-tag penalty
 
 ## Files
 
-- `index.html` — main page
-- `styles.css` — styling
-- `src/data.js` — entry database
-- `src/utils.js` — utility helpers
-- `src/game.js` — core game logic
-- `src/app.js` — UI wiring
+- `index.html` — layout and UI shell
+- `styles.css` — visual states for unused, partially used, selected, exhausted
+- `app.js` — game logic, scoring, x/n counters, partial-group handling
 
-## Run locally
+## Run
 
-Because this uses JavaScript modules, open it with a simple local server rather than double-clicking `index.html`.
+Open `index.html` in a browser.
 
-### Python
+For a local server:
+
 ```bash
-python -m http.server 8000
+python -m http.server
 ```
 
-Then open:
-```text
-http://localhost:8000
-```
-
-### VS Code Live Server
-You can also open the folder in VS Code and use Live Server.
-
-## Current limitations
-
-- Generator is constrained and heuristic, not yet fully quality-validated
-- Dataset is in-code rather than external JSON
-- No daily seed, persistence, or difficulty telemetry
-- No solver validation pass for accidental alternate solutions
-
-## Sensible next steps
-
-- Move dataset into JSON
-- Add authored themes
-- Add solver validation
-- Add mobile polish and animation
-- Add seeded runs / daily puzzle mode
+Then open the reported localhost URL.
